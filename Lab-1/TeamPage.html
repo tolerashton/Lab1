@@ -1,72 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Team Girl Power</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
- 
-  <body>
-	
+    <meta charset="utf-8">
+    <title>Team Girl Power</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
 
-		<p id="demo"></p>
-    <div class="main-nav">
-        <ul class="nav">
-          <li class="name">Team Members</li>
-		 
-          <li><a href="MypagetoLinkup.html">Ashton</a></li>
-		 
-          <li><a href="Kellipage.html">Kelli</a></li>
-          
-        </ul>
-    </div>
+<body id="Home" background-color="black">
 
-    <header>
-      <img src="" alt="" class="">
-      <h1 class="tag name">Who runs the world? GIRLS</h1>
-      <p class="tag location"></p>
-    </header>
+<div class="main-nav">
+    <ul class="nav">
+        <li id="Name" class="name">Team Members</li>
 
-    <main class="flex">
-	
-	<h1>My First JavaScript</h1>
+        <li><a href="MypagetoLinkup.html">Ashton</a></li>
 
-	<button type="button"
-	onclick="document.getElementById('date_time_button').innerHTML = Date()">
-	Click and see Date and Time.</button>
+        <li><a href="Kellipage.html">Kelli</a></li>
 
-		<p id="date_time_button"></p>
-      <body event> 
-	  
-	  <script> 
-	  function getCoords(event){
-	  var x=event.clientX;
-	  var y=event.clientY;
-	  alert("X:  " + x + ",Y: " +y);
-	  }
-	  </script>
-	  <p onmousedown="getCoords(event)"> </p>
-	  <p id="text"> Where am I?</p>
-	  <button onclick="getLocation()"> Find Me</button>
-	  <script>
-	  
-	  var response=document.getElementByID("text");
-	  function getLocation(){
-		if(navigator.geolocation){
-			navigator.geolocation.getCurrentPosition(position);
-			}
-		else{response.innerHTML="Geolocation is not avaiable for this device or browser";}
-		}
-		function position(loc){
-		response.innerHTML="latitude: " + loc.coords.latitude + 
-		"<br>longitude: " + loc.coords.longitude;
-		}
-		</script>
+    </ul>
+</div>
+
+<!--Home Page Starts-->
+<header>
+        <div class="media">
+            <img class="align-self-center mr-3" src="images/rosie.jpg" alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 id="Title" class="mt-0">Who runs the world? GIRLS</h5>
+            </div>
+        </div>
+
+</header>
+<!--Home Page Ends-->
+
+
+
+    <!--Sets Date and Time-->
+    <button id="date" type="button"
+            onclick="document.getElementById('date_time_button').innerHTML = Date()">
+        Date and Time
+    </button>
+
+    <p id="date_time_button"></p>
+    <body event>
+
+    <button id="find" type="button"
+            onclick="document.getElementById('findme').innerHTML = getLocation()">
+        Find Me
+    </button>
+
+    <p id="findme"></p>
+    <body event>
+
+
+    <!--Get Geolocation-->
+    <script>
+        var x = document.getElementById("findme");
+        function getLocation() {
+
+            if (navigator.geolocation) {
+               navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+
+
+
 		
 
-	
-	  
-    </main>
     <footer>
      <script>
 		function goodbye(e) {
@@ -80,5 +85,5 @@
 
 </script>
     </footer>
-  </body>
-  </html>
+    </body>
+</html>
